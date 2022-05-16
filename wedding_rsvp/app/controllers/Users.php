@@ -7,6 +7,7 @@ class Users extends Controller
         $this->userModel = $this->model('User');
     }
 
+
     public function login()
     {
         // Check for POST
@@ -78,7 +79,7 @@ class Users extends Controller
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_email'] = $user->email;
         $_SESSION['user_name'] = $user->name;
-        redirect('posts');
+        redirect('dashboards');
     }
 
     public function logout()

@@ -3,12 +3,11 @@ class Pages extends Controller
 {
     public function __construct()
     {
-        
     }
 
     public function index()
     {
-        if(isLoggedIn()){
+        if (isLoggedIn()) {
             redirect('posts');
         }
 
@@ -30,3 +29,6 @@ class Pages extends Controller
         $this->view('pages/about', $data);
     }
 }
+?>
+
+
