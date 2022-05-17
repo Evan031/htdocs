@@ -16,9 +16,19 @@
         </form>
     </div>
     <div class="col">
+        <?php foreach ($data['users'] as $user) : ?>
+            <div class="card card-body mb-3">
+                <h4 class="card-title"><?php echo $user->name; ?></h4>
+                <div class="bg-light p-2 mb-3">
+                    <?php echo $user->email; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
     <div class="col">
         One of three columns
     </div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php' ?>
+
+<br /><b>Notice</b>:  Undefined index: name in <b>C:\MAMP\htdocs\wedding_rsvp\app\views\dashboards\index.php</b> on line <b>7</b><br />
