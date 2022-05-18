@@ -8,9 +8,9 @@ class Dashboard
         $this->db = new Database;
     }
 
-    public function getUsers()
+    public function getGuests()
     {
-        $this->db->query('SELECT * FROM users');
+        $this->db->query('SELECT * FROM guests ORDER BY id DESC');
 
         $results = $this->db->resultSet();
 
@@ -31,5 +31,22 @@ class Dashboard
         } else {
             return false;
         }
+    }
+
+    public function deleteGuest($id){
+        $this->db->query('DELETE FROM guests WHERE id = :id');
+        // bind values
+        $this->db->bind(':id', $id);
+
+        // Execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateGuest($id){
+        
     }
 }

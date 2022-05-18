@@ -1,24 +1,23 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
+<?php flash('dashboard_message'); ?>
 <div class="row">
     <div class="col">
-        <form action="<?php echo URLROOT; ?>/dashboard/add" method="post">
-            <div class="form-group">
-                <label for="name">Name: <sup>*</sup></label>
-                <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
-                <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
+        <?php foreach ($data['guests'] as $guests) : ?>
+            <div class="card card-body mb-3">
+                <h4 class="card-title"><?php echo $guests->name; ?></h4>
+                <div class="bg-light p-2 mb-3">
+                    <?php echo $guests->surname; ?>
+                    <form class="pull-right" action="<?php echo URLROOT; ?>/dashboards/delete/<?php echo $guests->id; ?>" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="surname">Surname: <sup>*</sup></label>
-                <input type="text" surname="surname" class="form-control form-control-lg <?php echo (!empty($data['surname_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['surname']; ?>">
-                <span class="invalid-feedback"><?php echo $data['surname_err']; ?></span>
-            </div>
-            <input type="submit" class="btn btn-success" value="Submit">
-        </form>
+        <?php endforeach; ?>
     </div>
     <div class="col">
     </div>
     <div class="col">
-        One of three columns
+        <a href="<?php echo URLROOT; ?>/dashboards/add" class="btn btn-success">add Guests</a>
     </div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php' ?>
