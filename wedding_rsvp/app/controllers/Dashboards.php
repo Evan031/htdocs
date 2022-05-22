@@ -15,9 +15,11 @@ class Dashboards extends Controller
     {
         // Get posts
         $guests = $this->dashboardModel->getGuests();
+        $count = $this->dashboardModel->getGuestCount();
 
         $data = [
             'guests' => $guests,
+            'count' => $count
         ];
 
         $this->view('dashboards/index', $data);
@@ -90,6 +92,7 @@ class Dashboards extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
 
             $data = [
+                'id' => $id,
                 'name' => trim($_POST['name']),
                 'surname' => trim($_POST['surname']),
                 'name_err' => '',
@@ -106,10 +109,10 @@ class Dashboards extends Controller
 
             // Make sure no errors
             if (empty($data['name_err']) && empty($data['surname_err'])) {
-                // Vaidated
-                if ($this->dashboardModel->addGuest($data)) {
-                    flash('dashboard_message', 'Guest Added');
-                    redirect('dashboards/edit');
+                // Validated
+                if ($this->dashboardModel->updateGuest($data)) {
+                    flash('dashboard_message', 'Guest Edited');
+                    redirect('dashboards/index');
                 } else {
                     die('Something went wrong');
                 }
@@ -119,24 +122,16 @@ class Dashboards extends Controller
             }
 
         } else {
-            // !!!!!!!!!! CONTINUE FROM HERE = You need to load the existing data and create a getPostById model
+            // Get existing user from model
+            $guest = $this->dashboardModel->getGuestById($id);
 
+            $data = [
+                'id' => $id,
+                'name' => $guest->name,
+                'surname' => $guest->surname
+            ];
 
-            // // Get existing post from model
-            // $guest = $this->postModel->getPostById($id);
-
-            // // Check for owner
-            // if($post->user_id != $_SESSION['user_id']){
-            //     redirect('posts');
-            // }
-
-            // $data = [
-            //     'id' => $id,
-            //     'title' => $post->title,
-            //     'body' => $post->body
-            // ];
-
-            // $this->view('posts/edit', $data);
+            $this->view('dashboards/edit', $data);
         }
     }
 }

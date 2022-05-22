@@ -11,10 +11,12 @@
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </div>
+                <a href="<?php echo URLROOT; ?>/dashboards/edit/<?php echo $guests->id; ?>" class="btn btn-dark">Edit</a>
             </div>
         <?php endforeach; ?>
     </div>
     <div class="col">
+        <?php echo $data['count']; ?>
     </div>
     <div class="col">
         <a href="<?php echo URLROOT; ?>/dashboards/add" class="btn btn-success">add Guests</a>
