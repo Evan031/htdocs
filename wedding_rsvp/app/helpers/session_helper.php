@@ -33,3 +33,7 @@ function isLoggedIn()
         return false;
     }
 }
+
+function test_session(){
+    return $_SESSION['favcolor'];
+}

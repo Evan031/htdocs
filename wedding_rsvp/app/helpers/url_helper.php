@@ -6,15 +6,15 @@ function redirect($page){
 
 function foo($a) {
     // Using global keyword
-    global $a;
+    global $abc;
     return $a;
 }
 
-foo('whatever');
+
   
 function add() {
     // Using GLOBALS['var_name']
-    $text = 'addfunction ' . $GLOBALS['a'];
-    return $text;
+    $text = 'addfunction ' . $GLOBALS['abc'];
+    echo $text;
 }
 
