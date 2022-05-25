@@ -1,69 +1,32 @@
 <?php
 // Array with names
 
-
-// Make this whole thing work with an Assoc array !!!!!!!!!!
-$a[] = "Anna";
-$a[] = "Brittany";
-$a[] = "Cinderella";
-$a[] = "Diana";
-$a[] = "Eva";
-$a[] = "Fiona";
-$a[] = "Gunda";
-$a[] = "Hege";
-$a[] = "Inga";
-$a[] = "Johanna";
-$a[] = "Kitty";
-$a[] = "Linda";
-$a[] = "Nina";
-$a[] = "Ophelia";
-$a[] = "Petunia";
-$a[] = "Amanda";
-$a[] = "Raquel";
-$a[] = "Cindy";
-$a[] = "Doris";
-$a[] = "Eve";
-$a[] = "Evita";
-$a[] = "Sunniva";
-$a[] = "Tove";
-$a[] = "Unni";
-$a[] = "Violet";
-$a[] = "Liza";
-$a[] = "Elizabeth";
-$a[] = "Ellen";
-$a[] = "Wenche";
-$a[] = "Vicky";
-
 // get the q parameter from URL
-$q = $_REQUEST["q"];
+function ajax_helper($a){
+  $q = $_REQUEST["q"];
 
-$hint = "";
-
-// lookup all hints from array if $q is different from ""
-if ($q !== "") {
-  $q = strtolower($q);
-  $len=strlen($q);
-  foreach($a as $name) {
-    if (stristr($q, substr($name, 0, $len))) {
-      if ($hint === "") {
-        $hint = $name;
-      } else {
-        $hint .= ", $name";
+  $hint = "";
+  
+  // lookup all hints from array if $q is different from ""
+  if ($q !== "") {
+    $q = strtolower($q);
+    $len=strlen($q);
+    foreach($a as $x => $val) {
+      if (stristr($q, substr($val, 0, $len))) {
+        if ($hint === "") {
+          $hint =  "<li><a href='/php_test/index.php?guest_id=$x'>$val</a></li>";
+        } else {
+          $hint .= "<li><a href='/php_test/index.php?guest_id=$x'>$val</a></li>";
+        }
       }
     }
   }
+  
+  
+  // Output "no suggestion" if no hint was found or output correct values
+  echo $hint === "" ? "<li>There is noone by that name</li>" : $hint;
 }
 
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
+$array = array(1 => "Peter", 2 => "Ben", 3=> "Joe", 4=> "Juan");
 
-
-
-
-// $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
-
-// foreach($age as $x => $val) {
-//   echo "$x = $val<br>";
-// }
-
-?>
+ajax_helper($array);
