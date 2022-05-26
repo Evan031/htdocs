@@ -6,6 +6,9 @@ foreach ($data['guest_info'] as $guests) {
     $guestArray += [intval($guests->id) => $guests->name .' '. $guests->surname];
 }
 
+
+// This is where you start, bring this array into the gethint view
+// Then run your maniupaltions on it.
 // $_SESSION["guest_list"] = $guestArray;
 ?>
 
