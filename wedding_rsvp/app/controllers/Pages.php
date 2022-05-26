@@ -11,8 +11,14 @@ class Pages extends Controller
         // Get user info
         $guest_info = $this->pageModel->getGuestInfo();
 
+        $guest_array = [];
+
+        foreach ($guest_info as $guests) {
+            $guest_array += [intval($guests->id) => $guests->name . ' ' . $guests->surname];
+        }
+
         $data = [
-            'guest_info' => $guest_info,
+            'guest_array' => $guest_array,
         ];
 
         $this->view('pages/index', $data);
@@ -36,9 +42,31 @@ class Pages extends Controller
                 'name' => $name
             ];
 
+            // Array with names
+            $guest_array = $_SESSION["guest_list"];
+
+            // get the q parameter from URL
             $q = $data['name'];
 
-            echo "<p>Hello " . $q;
+            $hint = "";
+
+            // lookup all hints from array if $q is different from ""
+            if ($q !== "") {
+                $q = strtolower($q);
+                $len = strlen($q);
+                foreach ($guest_array as $x => $val) {
+                    if (stristr($q, substr($val, 0, $len))) {
+                        if ($hint === "") {
+                            $hint =  "<li>$x $val</li>";
+                        } else {
+                            $hint .= "<li>$val</li>";
+                        }
+                    }
+                }
+            }
+
+            // Output "no suggestion" if no hint was found or output correct values
+            echo $hint === "" ? "<li>There is noone by that name</li>" : $hint;
 
             // $this->view('pages/gethint', $data);
         }

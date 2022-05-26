@@ -34,6 +34,7 @@ function isLoggedIn()
     }
 }
 
-function test_session(){
-    return $_SESSION['favcolor'];
+function create_session($session_name, $session_variable){
+    $_SESSION[$session_name] = $session_variable;
 }
+
