@@ -21,7 +21,7 @@ function showHint(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         }
-        xmlhttp.open("GET", "<?php echo URLROOT; ?>/pages/gethint.php?q=" + str, true);
+        xmlhttp.open("GET", "<?php echo URLROOT; ?>/pages/gethint/" + str, true);
         xmlhttp.send();
     }
 }
@@ -44,8 +44,9 @@ http://localhost:83/wedding_rsvp/pages/gethint.php
 
 
 <!-- <input type="text" id="fname" name="fname" value="John"> -->
-
+<form action="">
 <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+</form>
 
 <?php
 // $data = [];

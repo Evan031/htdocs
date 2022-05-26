@@ -18,6 +18,8 @@ class Pages extends Controller
         $this->view('pages/index', $data);
     }
 
+    // function foo($str)
+
     public function about()
     {
         $data = [
@@ -27,12 +29,18 @@ class Pages extends Controller
         $this->view('pages/about', $data);
     }
 
-    public function gethint()
+    public function gethint($name)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $data = [];
+            $data = [
+                'name' => $name
+            ];
 
-            $this->view('pages/gethint', $data);
+            $q = $data['name'];
+
+            echo "<p>Hello " . $q;
+
+            // $this->view('pages/gethint', $data);
         }
     }
 }
