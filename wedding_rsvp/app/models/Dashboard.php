@@ -76,7 +76,7 @@ class Dashboard
     {
         $this->db->query('SELECT * FROM guests');
 
-        $count = $this->db->count();
+        $count = $this->db->rowCount();
 
         return $count;
     }

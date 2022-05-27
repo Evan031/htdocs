@@ -47,20 +47,20 @@ class Pages extends Controller
             $guest_array = $_SESSION["guest_list"];
 
             // get the q parameter from URL
-            $q = $data['name'];
+            $query = $data['name'];
 
             $hint = "";
 
-            // lookup all hints from array if $q is different from ""
-            if ($q !== "") {
-                $q = strtolower($q);
-                $len = strlen($q);
-                foreach ($guest_array as $x => $val) {
-                    if (stristr($q, substr($val, 0, $len))) {
+            // lookup all hints from array if $query is different from ""
+            if ($query !== "") {
+                $query = strtolower($query);
+                $len = strlen($query);
+                foreach ($guest_array as $guest_id => $guest_full_name) {
+                    if (stristr($query, substr($guest_full_name, 0, $len))) {
                         if ($hint === "") {
-                            $hint =  "<li>$x $val</li>";
+                            $hint =  "<a href=". URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
                         } else {
-                            $hint .= "<li>$val</li>";
+                            $hint .= "<a href=". URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
                         }
                     }
                 }
