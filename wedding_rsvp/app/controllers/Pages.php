@@ -26,13 +26,14 @@ class Pages extends Controller
 
     // function foo($str)
 
-    public function about()
+    public function rsvp($id)
     {
         $data = [
-            'title' => 'About Us'
+            'title' => 'RSVP',
+            'id' => $id
         ];
 
-        $this->view('pages/about', $data);
+        $this->view('pages/rsvp', $data);
     }
 
     public function gethint($name)
