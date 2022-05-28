@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
+<?php flash('page_message'); ?>
 <?php
 
 
@@ -10,7 +11,7 @@ $guestArray = $data['guest_array'];
 
 create_session("guest_list", $guestArray);
 
-var_dump($_SESSION["guest_list"]);
+var_dump($_SESSION["guest_list"][5]);
 ?>
 
 <script>
@@ -31,34 +32,20 @@ var_dump($_SESSION["guest_list"]);
     }
 </script>
 
+<?php 
 
+$foo_id = 5;
+
+$test = $guestArray[5]; 
+
+echo "<h3>$test</h3>";
+?>
 
 
 <!-- <input type="text" id="fname" name="fname" value="John"> -->
 <form action="">
     <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
 </form>
-
-
-
-<?php
-// $data = [];
-
-// $data += ["barfoo" => "test"];
-// $data += [02 => "foo"];
-// $data += [03 => "bar"];
-
-// $_SESSION["favcolor"] = $data;
-
-
-
-
-
-
-
-?>
-
-
 
 <ul>
     <span id="txtHint"></span>

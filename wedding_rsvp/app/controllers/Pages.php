@@ -24,12 +24,19 @@ class Pages extends Controller
         $this->view('pages/index', $data);
     }
 
-    // function foo($str)
-
     public function rsvp($id)
     {
+        // Get user info
+        $main_info = $this->pageModel->getMains();
+
+        $main_array = [];
+
+        foreach ($main_info as $main) {
+            $main_array += [intval($main->id) => $main->food_name];
+        }
+
         $data = [
-            'title' => 'RSVP',
+            'main_array' => $main_array,
             'id' => $id
         ];
 
@@ -68,8 +75,36 @@ class Pages extends Controller
 
             // Output "no suggestion" if no hint was found or output correct values
             echo $hint === "" ? "<li>There is noone by that name</li>" : $hint;
+        }
+    }
 
-            // $this->view('pages/gethint', $data);
+    public function no($id){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $guest = $_SESSION["guest_list"][$id];
+            
+            if($this->pageModel->notAttending($id)){
+                flash('page_message', $guest . ' will not be attending the wedding.');
+                redirect('pages/index');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            redirect('pages/index');
+        }
+    }
+
+    public function yes($id){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $guest = $_SESSION["guest_list"][$id];
+            
+            if($this->pageModel->Attending($id)){
+                flash('page_message', $guest . ' thanks for attending our wedding!!');
+                redirect('pages/index');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            redirect('pages/index');
         }
     }
 }
