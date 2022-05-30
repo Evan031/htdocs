@@ -22,3 +22,9 @@ function showResult(str) {
     xhttp.open("GET", "request.php?q=" + str, true);
     xhttp.send();
 }
+
+
+fruits.push("Kiwi");
+
+document.getElementById("demo").innerHTML = fruits;
+
