@@ -30,6 +30,8 @@
 
     // Use this for CSV Export
 
+    // Then use headers to redirect back to dashboard THEN the actual file path
+
     // $a=array("red","green");
     // array_push($a,array("blue","yellow"));
     // print_r($a);

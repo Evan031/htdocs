@@ -11,7 +11,6 @@ $guestArray = $data['guest_array'];
 
 create_session("guest_list", $guestArray);
 
-var_dump($_SESSION["guest_list"][5]);
 ?>
 
 <script>
@@ -34,11 +33,6 @@ var_dump($_SESSION["guest_list"][5]);
 
 <?php 
 
-$foo_id = 5;
-
-$test = $guestArray[5]; 
-
-echo "<h3>$test</h3>";
 ?>
 
 

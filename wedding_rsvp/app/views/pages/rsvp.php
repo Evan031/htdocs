@@ -2,6 +2,8 @@
 
 <p><?php var_dump($data['main_array']); ?></p>
 
+<?php flash('page_message'); ?>
+
 <!-- 
 !!!!!!!!!!! Break this up into tasks when you get back
 
@@ -69,17 +71,14 @@ use modal for not attending
             <div class="modal-body">
                 <div class="row">
                     <div class="col">
-                        <form action="<?php echo URLROOT; ?>/pages/yes/<?php echo $data['id'] ?>" method="post">
-                            <div class="form-group">
-                                <label for="name">Choose your main dish: <sup>*</sup></label>
-                                <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
-                                <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="surname">Surname: <sup>*</sup></label>
-                                <input type="text" name="surname" class="form-control form-control-lg <?php echo (!empty($data['surname_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['surname']; ?>">
-                                <span class="invalid-feedback"><?php echo $data['surname_err']; ?></span>
-                            </div>
+                        <form action="<?php echo URLROOT; ?>/pages/yes/<?php echo $data['id']; ?>" method="post">
+                            <select class="form-select" aria-label="Default select example" name="guest_main">
+                                <option value="" selected>Open this select menu</option>
+                                <?php foreach ($data['main_array'] as $main_key => $main_value) { ?>
+                                    <option value="<?php echo $main_key; ?>"><?php echo $main_value; ?></option>
+                                <?php } ?>
+                            </select>
+                            <input type="hidden" name="guest_id" value="<?php echo $data['id']; ?>">
                             <input type="submit" class="btn btn-success" value="Submit">
                         </form>
                     </div>
@@ -99,9 +98,3 @@ use modal for not attending
 get this select form to post
 add error states to view
 -->
-<select class="form-select" aria-label="Default select example">
-    <option selected>Open this select menu</option>
-    <?php foreach ($data['main_array'] as $main_key => $main_value) { ?>
-        <option value="<?php echo $main_key; ?>"><?php echo $main_value; ?></option>
-    <?php } ?>
-</select>

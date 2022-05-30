@@ -65,9 +65,9 @@ class Pages extends Controller
                 foreach ($guest_array as $guest_id => $guest_full_name) {
                     if (stristr($query, substr($guest_full_name, 0, $len))) {
                         if ($hint === "") {
-                            $hint =  "<a href=". URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
+                            $hint =  "<a href=" . URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
                         } else {
-                            $hint .= "<a href=". URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
+                            $hint .= "<a href=" . URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
                         }
                     }
                 }
@@ -78,12 +78,18 @@ class Pages extends Controller
         }
     }
 
-    public function no($id){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    public function no($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $guest = $_SESSION["guest_list"][$id];
-            
-            if($this->pageModel->notAttending($id)){
+
+            $data = [
+                'guest_id' => $id
+            ];
+
+            if ($this->pageModel->notAttending($id)) {
                 flash('page_message', $guest . ' will not be attending the wedding.');
+                $this->pageModel->rsvp($data);
                 redirect('pages/index');
             } else {
                 die('Something went wrong');
@@ -93,12 +99,25 @@ class Pages extends Controller
         }
     }
 
-    public function yes($id){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $guest = $_SESSION["guest_list"][$id];
-            
-            if($this->pageModel->Attending($id)){
+    public function yes()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);    
+
+            $data = [
+                'guest_id' => trim($_POST['guest_id']),
+                'guest_main' => trim($_POST['guest_main']),
+            ];
+            $guest = $_SESSION["guest_list"][$data['guest_id']];
+
+            if (empty($data['guest_main'])) {
+                flash('page_message', 'You have not chosen a main dish');
+                redirect('pages/rsvp/' . $data['guest_id']);
+            }
+
+            if ($this->pageModel->attending($data)) {
                 flash('page_message', $guest . ' thanks for attending our wedding!!');
+                $this->pageModel->rsvp($data);
                 redirect('pages/index');
             } else {
                 die('Something went wrong');
@@ -107,4 +126,5 @@ class Pages extends Controller
             redirect('pages/index');
         }
     }
+
 }
