@@ -24,7 +24,3 @@ function showResult(str) {
 }
 
 
-fruits.push("Kiwi");
-
-document.getElementById("demo").innerHTML = fruits;
-

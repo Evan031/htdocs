@@ -72,10 +72,21 @@ class Dashboard
         return $row;
     }
 
-    public function guestCountGraph()
+    public function guestAttendingGraph()
     {
 
-        $this->db->query('SELECT COUNT(IF(attending = 1, 1, NULL)) "Yes", COUNT(IF(attending = 0, 1, NULL)) "No" FROM details');
+        $this->db->query('SELECT COUNT(IF(attending = 1, 1, NULL)) AS "Yes", COUNT(IF(attending = 0, 1, NULL)) AS "No" FROM details');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+        
+    }
+
+    public function guestRsvpGraph()
+    {
+
+        $this->db->query('SELECT COUNT(IF(rsvp = 1, 1, NULL)) AS "Yes", COUNT(IF(rsvp = 0, 1, NULL)) AS "No" FROM guests');
 
         $results = $this->db->resultSet();
 

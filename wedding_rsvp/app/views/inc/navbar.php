@@ -16,6 +16,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?php echo URLROOT; ?>/dashboards/add" class="btn btn-success">add Guests</a>
+                    </li>
                 <?php else : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>

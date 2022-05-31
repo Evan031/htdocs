@@ -16,19 +16,33 @@ class Dashboards extends Controller
         // Get posts
         $guests = $this->dashboardModel->getGuests();
         $count = $this->dashboardModel->getGuestCount();
-        $guest_graph = $this->dashboardModel->guestCountGraph();
+
+        $guest_graph = $this->dashboardModel->guestAttendingGraph();
+        $attending_values = [];
+        $attending_names = [];
+        $attending_graph = (array)($guest_graph[0]);
+        graph_array($attending_graph, $attending_names, $attending_values);
+
+        $rsvp_graph = $this->dashboardModel->guestRsvpGraph();
+        $rsvp_values = [];
+        $rsvp_names = [];
+        $guest_rsvp_graph = (array)($rsvp_graph[0]);
+        graph_array($guest_rsvp_graph, $rsvp_names, $rsvp_values);
 
         $data = [
             'guests' => $guests,
             'count' => $count,
-            'guest_graph' => $guest_graph
+            'attending_values' => $attending_values,
+            'attending_names' => $attending_names,
+            'rsvp_values' => $rsvp_values,
+            'rsvp_names' => $rsvp_names
         ];
 
         $this->view('dashboards/index', $data);
     }
 
 
- 
+
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -73,10 +87,11 @@ class Dashboards extends Controller
         }
     }
 
-    public function delete($id){
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            
-            if($this->dashboardModel->deleteGuest($id)){
+    public function delete($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            if ($this->dashboardModel->deleteGuest($id)) {
                 flash('dashboard_message', 'Guest removed');
                 redirect('dashboards/index');
             } else {
@@ -122,7 +137,6 @@ class Dashboards extends Controller
                 // Load view with errors
                 $this->view('dashboards/edit', $data);
             }
-
         } else {
             // Get existing user from model
             $guest = $this->dashboardModel->getGuestById($id);
