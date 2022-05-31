@@ -1,10 +1,23 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
 <?php flash('dashboard_message'); ?>
+<?php
+$answers = [];
+$columns = [];
+foreach ((array)($data['guest_graph'][0]) as $key => $value) {
+    array_push($columns, $key);
+    array_push($answers, $value);
+}
+
+?>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+        <?php var_dump($answers); ?>
+        </br>
+        <?php var_dump($columns); ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <?php foreach ($data['guests'] as $guests) : ?>
             <div class="card card-body mb-3">
                 <h4 class="card-title"><?php echo $guests->name; ?></h4>
@@ -18,7 +31,7 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <a href="<?php echo URLROOT; ?>/dashboards/add" class="btn btn-success">add Guests</a>
     </div>
 </div>
@@ -26,15 +39,28 @@
 <!-- Sort out controller -->
 <!-- SELECT COUNT(IF(attending = 1, 1, NULL)) 'Yes', COUNT(IF(attending = 0, 1, NULL)) 'No' FROM details -->
 
+
+
 <script>
-    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-    var yValues = [55, 49, 44, 24, 15];
+    var foojs = <?php echo $phpfoo; ?>;
+
+    // console.log(guestCountArray);
+
+    // const arrOfNum = [];
+
+    // js_array.forEach(str => {
+    //   arrOfNum.push(Number(str));
+    // });
+
+    console.log(arrOfNum);
+</script>
+
+<script>
+    var xValues = <?php echo json_encode($columns); ?>;
+    var yValues = <?php echo json_encode($answers); ?>;
     var barColors = [
         'rgba(255, 99, 132, 0.2)',
         'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 205, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(54, 162, 235, 0.2)'
     ];
 
 
@@ -54,6 +80,13 @@
             title: {
                 display: true,
                 text: "World Wine Production 2018"
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
         }
     });

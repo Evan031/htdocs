@@ -72,6 +72,17 @@ class Dashboard
         return $row;
     }
 
+    public function guestCountGraph()
+    {
+
+        $this->db->query('SELECT COUNT(IF(attending = 1, 1, NULL)) "Yes", COUNT(IF(attending = 0, 1, NULL)) "No" FROM details');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+        
+    }
+
     public function getGuestCount()
     {
         $this->db->query('SELECT * FROM guests');

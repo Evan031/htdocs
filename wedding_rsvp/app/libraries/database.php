@@ -70,6 +70,13 @@ class Database
         return $this->stmt->execute();
     }
 
+    // Get result set as array
+    public function arraySet()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll();
+    }
+
     // Get result set as array of objects
     public function resultSet()
     {

@@ -16,10 +16,12 @@ class Dashboards extends Controller
         // Get posts
         $guests = $this->dashboardModel->getGuests();
         $count = $this->dashboardModel->getGuestCount();
+        $guest_graph = $this->dashboardModel->guestCountGraph();
 
         $data = [
             'guests' => $guests,
-            'count' => $count
+            'count' => $count,
+            'guest_graph' => $guest_graph
         ];
 
         $this->view('dashboards/index', $data);
