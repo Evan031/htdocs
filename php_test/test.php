@@ -44,6 +44,36 @@
     2. loop through it and append values to js array
      -->
 
+
+     <?php
+$php_array = [1,2,3];
+?> 
+<script>
+function
+var js_array = [<?php echo '"'.implode('","', $php_array).'"' ?>];
+
+const arrOfNum = [];
+
+js_array.forEach(str => {
+  arrOfNum.push(Number(str));
+});
+
+console.log(arrOfNum);
+</script>
+
+
+<script>
+let text = "";
+const fruits = ["apple", "orange", "cherry"];
+fruits.forEach(myFunction);
+
+document.getElementById("demo").innerHTML = text;
+ 
+function myFunction(item, index) {
+  text += index + ": " + item + "<br>"; 
+}
+</script>
+
      <script>
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 
