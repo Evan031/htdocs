@@ -13,31 +13,43 @@ class Dashboards extends Controller
 
     public function index()
     {
-        // Get posts
+        // Get model results
         $guests = $this->dashboardModel->getGuests();
         $count = $this->dashboardModel->getGuestCount();
+        $rsvp_yes = $this->dashboardModel->rsvpFilter(1);
+        $rsvp_no = $this->dashboardModel->rsvpFilter(0);
+        $attending_yes = $this->dashboardModel->attendingFilter(1);
+        $attending_no = $this->dashboardModel->attendingFilter(0);
 
+        // Guest attending graph
         $guest_graph = $this->dashboardModel->guestAttendingGraph();
         $attending_values = [];
         $attending_names = [];
         $attending_graph = (array)($guest_graph[0]);
         graph_array($attending_graph, $attending_names, $attending_values);
 
+        // RSVP graph
         $rsvp_graph = $this->dashboardModel->guestRsvpGraph();
         $rsvp_values = [];
         $rsvp_names = [];
         $guest_rsvp_graph = (array)($rsvp_graph[0]);
         graph_array($guest_rsvp_graph, $rsvp_names, $rsvp_values);
 
+        // Get food graph
         $food_graph = $this->dashboardModel->getFoodGraph();
         $food_values = [];
         $food_names = [];
         $guest_food_graph = (array)($food_graph[0]);
         graph_array($guest_food_graph, $food_names, $food_values);
 
+
         $data = [
             'guests' => $guests,
             'count' => $count,
+            'rsvp_yes' => $rsvp_yes,
+            'rsvp_no' => $rsvp_no,
+            'attending_yes' => $attending_yes,
+            'attending_no' => $attending_no,
             'attending_values' => json_encode($attending_values),
             'attending_names' => json_encode($attending_names),
             'rsvp_values' => json_encode($rsvp_values),

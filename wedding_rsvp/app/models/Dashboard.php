@@ -20,7 +20,7 @@ class Dashboard
     public function addGuest($data)
     {
         $this->db->query('INSERT INTO guests (name, surname) VALUES (:name, :surname)');
-        
+
         // bind values
         $this->db->bind(':name', $data['name']);
         $this->db->bind(':surname', $data['surname']);
@@ -33,7 +33,8 @@ class Dashboard
         }
     }
 
-    public function deleteGuest($id){
+    public function deleteGuest($id)
+    {
         $this->db->query('DELETE FROM guests WHERE id = :id');
         // bind values
         $this->db->bind(':id', $id);
@@ -80,7 +81,6 @@ class Dashboard
         $results = $this->db->resultSet();
 
         return $results;
-        
     }
 
     public function guestRsvpGraph()
@@ -91,7 +91,6 @@ class Dashboard
         $results = $this->db->resultSet();
 
         return $results;
-        
     }
 
     public function getGuestCount()
@@ -120,5 +119,27 @@ class Dashboard
         return $results;
     }
 
-    
+    public function attendingFilter($bool)
+    {
+        $this->db->query('SELECT 
+                        name, surname
+                        FROM details
+                        INNER JOIN guests
+                        ON details.guest_id = guests.id
+                        WHERE attending = ' . $bool
+        );
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
+    public function rsvpFilter($bool)
+    {
+        $this->db->query('SELECT name, surname FROM guests WHERE rsvp = ' . $bool);
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
 }

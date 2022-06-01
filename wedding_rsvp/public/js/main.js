@@ -91,3 +91,32 @@ new Chart("guests_mains", {
     }
 });
 
+
+
+// Dashboard filters
+$(document).ready(function () {
+    $("#r_no_btn").click(function () {
+        $("#rsvp_yes").hide();
+        $("#rsvp_no").show();
+        $("#r_yes_btn").show();
+        $("#r_no_btn").hide();
+    });
+    $("#r_yes_btn").click(function () {
+        $("#rsvp_no").hide();
+        $("#rsvp_yes").show();
+        $("#r_no_btn").show();
+        $("#r_yes_btn").hide();
+    });
+    $("#a_no_btn").click(function () {
+        $("#attending_yes").hide();
+        $("#attending_no").show();
+        $("#a_yes_btn").show();
+        $("#a_no_btn").hide();
+    });
+    $("#a_yes_btn").click(function () {
+        $("#attending_no").hide();
+        $("#attending_yes").show();
+        $("#a_no_btn").show();
+        $("#a_yes_btn").hide();
+    });
+});

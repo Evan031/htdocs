@@ -1,3 +1,8 @@
 .graph_style {
     width: 100%;
 }
+
+#rsvp_no, #attending_no, #a_yes_btn, #r_yes_btn {
+    display: none;
+}
+
