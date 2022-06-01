@@ -53,7 +53,7 @@ new Chart("guests_rsvp", {
         },
         title: {
             display: true,
-            text: "Attending Guests"
+            text: "RSVP Guests"
         },
         scales: {
             yAxes: [{
@@ -64,3 +64,30 @@ new Chart("guests_rsvp", {
         }
     }
 });
+
+
+// Food Preferences graph
+var food_colours = [
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(201, 203, 207, 0.2)',
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+];
+
+new Chart("guests_mains", {
+    type: "doughnut",
+    data: {
+        labels: food_xValues,
+        datasets: [{
+            backgroundColor: food_colours,
+            data: food_yValues
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: "Guests Food Preferences"
+        }
+    }
+});
+

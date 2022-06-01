@@ -103,7 +103,7 @@ class Dashboard
         return $count;
     }
 
-    public function getDoughnutGraph()
+    public function getFoodGraph()
     {
         $this->db->query('SELECT 
                         COUNT(IF(details.main = 2, 1, NULL)) AS "Food 1",

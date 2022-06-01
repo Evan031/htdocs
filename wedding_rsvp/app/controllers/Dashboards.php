@@ -29,13 +29,21 @@ class Dashboards extends Controller
         $guest_rsvp_graph = (array)($rsvp_graph[0]);
         graph_array($guest_rsvp_graph, $rsvp_names, $rsvp_values);
 
+        $food_graph = $this->dashboardModel->getFoodGraph();
+        $food_values = [];
+        $food_names = [];
+        $guest_food_graph = (array)($food_graph[0]);
+        graph_array($guest_food_graph, $food_names, $food_values);
+
         $data = [
             'guests' => $guests,
             'count' => $count,
-            'attending_values' => $attending_values,
-            'attending_names' => $attending_names,
-            'rsvp_values' => $rsvp_values,
-            'rsvp_names' => $rsvp_names
+            'attending_values' => json_encode($attending_values),
+            'attending_names' => json_encode($attending_names),
+            'rsvp_values' => json_encode($rsvp_values),
+            'rsvp_names' => json_encode($rsvp_names),
+            'food_values' => json_encode($food_values),
+            'food_names' => json_encode($food_names)
         ];
 
         $this->view('dashboards/index', $data);
