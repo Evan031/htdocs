@@ -103,5 +103,22 @@ class Dashboard
         return $count;
     }
 
+    public function getDoughnutGraph()
+    {
+        $this->db->query('SELECT 
+                        COUNT(IF(details.main = 2, 1, NULL)) AS "Food 1",
+                        COUNT(IF(details.main = 3, 1, NULL)) AS "Chicken",
+                        COUNT(IF(details.main = 4, 1, NULL)) AS "Pork"
+                        FROM
+                        details
+                        INNER JOIN foods
+                        ON details.main = foods.id
+                        WHERE attending = 1');
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
+
     
 }
