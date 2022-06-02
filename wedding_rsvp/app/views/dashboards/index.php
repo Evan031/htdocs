@@ -14,6 +14,11 @@
 </div>
 
 <div class="row">
+    <div class="col-md-12">
+
+        <a href="<?php echo URLROOT ?>/food_preferences.csv" class="btn btn-success">Download Food Preference CSV</a>
+
+    </div>
     <div class="col-md-6">
         <button id="r_no_btn" class="btn btn-light">Show haven't RSVP</button>
         <button id="r_yes_btn" class="btn  btn-light">Show RSVP'd guests</button>

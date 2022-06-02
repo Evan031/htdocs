@@ -42,6 +42,20 @@ class Dashboards extends Controller
         $guest_food_graph = (array)($food_graph[0]);
         graph_array($guest_food_graph, $food_names, $food_values);
 
+        $food_pref = $this->dashboardModel->download_sheet();
+        $food_array = array();
+        foreach ($food_pref as $food) {
+            array_push($food_array, array($food->name, $food->surname, $food->food_name));
+        }
+
+        $file = fopen("food_preferences.csv", "w");
+
+        foreach ($food_array as $line) {
+            fputcsv($file, $line);
+        }
+
+        fclose($file);
+
 
         $data = [
             'guests' => $guests,
@@ -55,7 +69,8 @@ class Dashboards extends Controller
             'rsvp_values' => json_encode($rsvp_values),
             'rsvp_names' => json_encode($rsvp_names),
             'food_values' => json_encode($food_values),
-            'food_names' => json_encode($food_names)
+            'food_names' => json_encode($food_names),
+            'food_pref' => $food_pref
         ];
 
         $this->view('dashboards/index', $data);
@@ -168,6 +183,22 @@ class Dashboards extends Controller
             ];
 
             $this->view('dashboards/edit', $data);
+        }
+    }
+
+    public function csv_download()
+    {
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($this->dashboardModel->download_sheet()) {
+                flash('dashboard_message', 'Download in progress');
+                redirect('dashboards/index');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            redirect('dashboards/index');
         }
     }
 }

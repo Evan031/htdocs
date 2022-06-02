@@ -142,4 +142,23 @@ class Dashboard
 
         return $results;
     }
+
+    public function download_sheet()
+    {
+        $this->db->query('SELECT 
+                        guests.name,
+                        guests.surname,
+                        foods.food_name
+                        FROM details
+                        INNER JOIN guests
+                        ON details.guest_id = guests.id
+                        INNER JOIN foods
+                        ON details.main = foods.id
+                        WHERE details.attending = 1'
+        );
+
+        $results = $this->db->resultSet();
+
+        return $results;
+    }
 }
