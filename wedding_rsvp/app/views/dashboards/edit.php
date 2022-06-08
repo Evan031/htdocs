@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
+<div class="container">
 <div class="row">
     <div class="col">
         <form action="<?php echo URLROOT; ?>/dashboards/edit/<?php echo $data['id']; ?>" method="post">
@@ -20,6 +21,7 @@
     <div class="col">
         One of three columns
     </div>
+</div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php' ?>
 

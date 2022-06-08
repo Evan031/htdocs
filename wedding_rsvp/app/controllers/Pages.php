@@ -65,9 +65,9 @@ class Pages extends Controller
                 foreach ($guest_array as $guest_id => $guest_full_name) {
                     if (stristr($query, substr($guest_full_name, 0, $len))) {
                         if ($hint === "") {
-                            $hint =  "<a href=" . URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
+                            $hint =  "<div><a href=" . URLROOT . '/pages/rsvp/' . "$guest_id> $guest_full_name</a></div>";
                         } else {
-                            $hint .= "<a href=" . URLROOT . '/pages/rsvp/' . "$guest_id><li> $guest_full_name</li></a>";
+                            $hint .= "<div><a href=" . URLROOT . '/pages/rsvp/' . "$guest_id> $guest_full_name</a></div>";
                         }
                     }
                 }

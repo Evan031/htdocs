@@ -1,11 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
-<?php flash('page_message'); ?>
+<?php  ?>
 <?php
-
-
-// This is where you start, bring this array into the gethint view
-// Then run your maniupaltions on it.
-
+flash('page_message');
 
 $guestArray = $data['guest_array'];
 
@@ -25,7 +21,7 @@ create_session("guest_list", $guestArray);
                     document.getElementById("txtHint").innerHTML = this.responseText;
                 }
             }
-            xmlhttp.open("GET", "<?php echo URLROOT; ?>/pages/gethint/" + str, true);
+            xmlhttp.open("GET", ajax_url + str, true);
             xmlhttp.send();
         }
     }

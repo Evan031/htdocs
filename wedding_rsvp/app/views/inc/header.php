@@ -39,4 +39,6 @@
 <body>
 
     <body>
+    <?php if (isset($_SESSION['user_id'])) : ?>
         <?php require APPROOT . '/views/inc/navbar.php'; ?>
+    <?php endif; ?> 
