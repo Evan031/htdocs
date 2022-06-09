@@ -40,7 +40,25 @@
     background-color: #f1f1f1;
 }
 
+.slider_area {
+    background-color: #fff;
+}
 
+.row.location_section_row {
+    background-color: #fff;
+    padding: 5%;
+}
+
+div#wreath_image {
+    width: 700px;
+    height: 700px;
+    background-image: url(../img/banner/wreath.png);
+    z-index: 1;
+    background-color: transparent;
+    border-radius: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 /* ======================================================================== */
 
@@ -72,6 +90,7 @@ body {
     font-weight: normal;
     font-style: normal;
     overflow-x: hidden;
+    background-color: #F2EADE;
 }
 
 /* line 15, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/theme-default.scss */
@@ -128,7 +147,7 @@ h3,
 h4,
 h5 {
     font-family: 'Playfair Display', serif;
-    color: #1F1F1F;
+    color: #660C13;
 }
 
 /* line 48, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/theme-default.scss */
@@ -288,7 +307,6 @@ h3 {
 .overlay2::before {
     position: absolute;
     content: "";
-    background-color: #fff;
     top: 0;
     left: 0;
     width: 100%;
@@ -1066,11 +1084,6 @@ h3 {
     background-image: url(../img/banner/banner2.png);
 }
 
-/* line 7, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_slider.scss */
-.slider_area {
-    background: #fff;
-}
-
 @media (max-width: 767px) {
 
     /* line 7, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_slider.scss */
@@ -1121,7 +1134,6 @@ h3 {
     /* line 14, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_slider.scss */
     .slider_area_inner {
         height: 800px;
-        background-position: right;
     }
 }
 
@@ -1387,7 +1399,7 @@ h3 {
 
 /* line 23, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_wedding_counter.scss */
 .weeding_countdown_area .countdown_area {
-    padding: 35px 35px 50px 35px;
+    padding: 35px 35px 35px 35px;
     background-size: cover;
     background-position: bottom;
 }
@@ -1498,8 +1510,9 @@ h3 {
 
 /* line 1, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_attending.scss */
 .attending_area {
-    padding-top: 95px;
-    padding-bottom: 280px;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    background-color: #fff;
 }
 
 /* line 4, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_attending.scss */
@@ -1733,6 +1746,7 @@ h3 {
 .love_story_area {
     padding-top: 75px;
     padding-bottom: 30px;
+    background-color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -1972,9 +1986,10 @@ h3 {
 
 /* line 1, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_location.scss */
 .location_area {
-    padding: 0 50px;
+    padding: 5%;
     position: relative;
-    margin: 20% 0%;
+    background-image: url(../img/banner/line-art-flowers.svg);
+    background-size: cover;
 }
 
 /* line 4, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_location.scss */
@@ -2001,6 +2016,8 @@ h3 {
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
+    padding: 3%;
+    background-color: #fff;
 }
 
 @media (max-width: 767px) {

@@ -18,23 +18,14 @@ create_session("guest_list", $guestArray);
                 <h4>11 Feb 2023</h4>
                 <h3>Stacey & Evan <br>
                     Wedding Ceremony</h3>
-                <span>Get Married</span>
+                <span>We're Getting Married!</span>
             </div>
+        </div>
+        <div id="wreath_image" class="slider_text text-center">
         </div>
     </div>
 </div>
 <!--/ slider_area -->
-
-
-<div class="rsvp_button">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12 text-center">
-                <a href="#rsvp_section" class="boxed_btn3">RSVP NOW</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- wedding_countdown -->
 <div class="weeding_countdown_area">
@@ -52,6 +43,9 @@ create_session("guest_list", $guestArray);
                     <span>11. February. 2023</span>
                     <h3>THE. WEDDING. Countdown</h3>
                 </div>
+            </div>
+            <div class="col-md-12 text-center mb-5">
+            <a href="#rsvp_section" class="boxed_btn3" id="rsvp_scroll_button">RSVP NOW</a>
             </div>
         </div>
         <div class="row">
@@ -76,7 +70,7 @@ create_session("guest_list", $guestArray);
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="col-xl-4 col-md-6 col-lg-6">
                 <div class="single_lover_story text-center">
                     <div class="story_thumb">
                         <img src="img/story/1.png" alt="">
@@ -90,7 +84,7 @@ create_session("guest_list", $guestArray);
                         packages and web page editors now use.</p>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
+            <div class="col-xl-8 col-md-6 col-lg-6">
                 <div class="weding_time_line text-center">
                     <div class="single_time_line">
                         <h3>Fast Meet</h3>
@@ -110,20 +104,6 @@ create_session("guest_list", $guestArray);
                     <div class="single_time_line">
                         <h3>Wedding Day</h3>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4">
-                <div class="single_lover_story text-center">
-                    <div class="story_thumb">
-                        <img src="img/story/2.png" alt="">
-                    </div>
-                    <span>Bride</span>
-                    <h3>Anjelina Kona</h3>
-                    <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
-                        alteration in some content of a page when looking at its layout. The point of using Lorem
-                        Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
-                        Content here content here, making it look like readable English. Many desktop publishing
-                        packages and web page editors now use.</p>
                 </div>
             </div>
         </div>
@@ -232,24 +212,31 @@ create_session("guest_list", $guestArray);
 
 <!-- ================ contact section start ================= -->
 <section class="location_area">
-    <div class="location_info">
-        <div class="location_inner">
-            <div class="location_top text-center">
-                <h3>Location</h3>
-                <p>Mas Montagnette, 19 West 21th Str. <br>
-                    <span>+1 843-853-1810</span>
-                </p>
-            </div>
-            <div class="address_info d-flex justify-content-between">
-                <div class="single_address text-center">
-                    <h4>Where to stay</h4>
-                    <p>4:00p – 12:00p <br>
-                        The Secret Shrine Club</p>
+    <div class="container">
+        <div class="row location_section_row">
+            <div class="col-md-4">
+                <div class="location_top text-center">
+                    <h3>Church</h3>
+                    <p>585 Randles Rd, Clare Hills,<br>
+                        <span>Durban, 4091</span>
+                    </p>
+                    <a href="https://goo.gl/maps/B23KJRDy43o127yu7" target="_blank" rel="noopener noreferrer" class="boxed_btn3 mt-4">Directions</a>
                 </div>
+            </div>
+            <div class="col-md-4">
                 <div class="single_address text-center">
-                    <h4>Activities</h4>
-                    <p>4:00p – 12:00p <br>
-                        The Secret Shrine Club</p>
+                    <h3>Reception Venue</h3>
+                    <p>D706 Rd, Peacevale,<br>
+                        Durban, 3624</p>
+                    <a href="https://g.page/gracelandsfarm?share" target="_blank" rel="noopener noreferrer" class="boxed_btn3 mt-4">Directions</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single_address text-center">
+                    <h3>Gift Registry</h3>
+                    <p>If you would like to<br>
+                        honour us with a gift</p>
+                    <a href="http://www.mrphome.com/en_za/giftregistry/view/index/id/45731" target="_blank" rel="noopener noreferrer" class="boxed_btn3 mt-4">Click Me</a>
                 </div>
             </div>
         </div>
