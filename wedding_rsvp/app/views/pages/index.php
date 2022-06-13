@@ -14,7 +14,7 @@ create_session("guest_list", $guestArray);
     <div class="slider_area_inner slider_bg_1 overlay2">
         <div class="slider_text text-center">
             <div class="text_inner">
-                <img src="img/banner/ornaments.png" alt="">
+                <img src="../img/banner/ornaments.png" alt="">
                 <h4>11 Feb 2023</h4>
                 <h3>Stacey & Evan <br>
                     Wedding Ceremony</h3>
@@ -30,16 +30,16 @@ create_session("guest_list", $guestArray);
 <!-- wedding_countdown -->
 <div class="weeding_countdown_area">
     <div class="flowaers_top d-none d-lg-block">
-        <img src="img/banner/flower-top.png" alt="">
+        <img src="../img/banner/flower-top.png" alt="">
     </div>
     <div class="flowaers_bottom d-none d-lg-block">
-        <img src="img/banner/flower-bottom.png" alt="">
+        <img src="../img/banner/flower-bottom.png" alt="">
     </div>
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="img/banner/flowers.png" alt="">
+                    <img src="../img/banner/flowers.png" alt="">
                     <span>11. February. 2023</span>
                     <h3>THE. WEDDING. Countdown</h3>
                 </div>
@@ -64,7 +64,7 @@ create_session("guest_list", $guestArray);
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="img/banner/flowers.png" alt="">
+                    <img src="../img/banner/flowers.png" alt="">
                     <h3>Our. Love. Story</h3>
                 </div>
             </div>
@@ -73,7 +73,7 @@ create_session("guest_list", $guestArray);
             <div class="col-xl-4 col-md-6 col-lg-6">
                 <div class="single_lover_story text-center">
                     <div class="story_thumb">
-                        <img src="img/story/1.png" alt="">
+                        <img src="../img/story/1.png" alt="">
                     </div>
                     <span>Groom</span>
                     <h3>Jack Wonner</h3>
@@ -117,7 +117,7 @@ create_session("guest_list", $guestArray);
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="img/banner/flowers.png" alt="">
+                    <img src="../img/banner/flowers.png" alt="">
                     <h3>Program. Details</h3>
                 </div>
             </div>
@@ -132,7 +132,7 @@ create_session("guest_list", $guestArray);
                         <h3>Wedding Ceremony</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. </p>
-                        <img src="img/program_details/ornaments.png" alt="">
+                        <img src="../img/program_details/ornaments.png" alt="">
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ create_session("guest_list", $guestArray);
                         <h3>Lunch Time</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. </p>
-                        <img src="img/program_details/ornaments.png" alt="">
+                        <img src="../img/program_details/ornaments.png" alt="">
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@ create_session("guest_list", $guestArray);
                         <h3>WeParty Time</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. </p>
-                        <img src="img/program_details/ornaments.png" alt="">
+                        <img src="../img/program_details/ornaments.png" alt="">
                     </div>
                 </div>
             </div>
@@ -174,10 +174,10 @@ create_session("guest_list", $guestArray);
             <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
                 <div class="main_attending_area">
                     <div class="flower_1 d-none d-lg-block">
-                        <img src="img/appointment/flower-top.png" alt="">
+                        <img src="../img/appointment/flower-top.png" alt="">
                     </div>
                     <div class="flower_2 d-none d-lg-block">
-                        <img src="img/appointment/flower-bottom.png" alt="">
+                        <img src="../img/appointment/flower-bottom.png" alt="">
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-xl-7 col-lg-8">

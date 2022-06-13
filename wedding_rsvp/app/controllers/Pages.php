@@ -74,7 +74,7 @@ class Pages extends Controller
             }
 
             // Output "no suggestion" if no hint was found or output correct values
-            echo $hint === "" ? "<li>There is noone by that name</li>" : $hint;
+            echo $hint === "" ? "<div><a>We cannot find that guest</a></div>" : $hint;
         }
     }
 
