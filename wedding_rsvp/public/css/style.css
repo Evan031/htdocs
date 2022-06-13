@@ -1630,7 +1630,7 @@ h3 {
     background: #fff;
     display: inline-block;
     z-index: 9;
-    width: 400px;
+    width: 100%;
     padding: 51px 40px 60px 40px;
     -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
