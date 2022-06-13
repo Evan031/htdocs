@@ -1,7 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
 
-<p><?php var_dump($data['main_array']); ?></p>
-
 <?php flash('page_message'); ?>
 
 <!-- 
@@ -14,17 +12,23 @@ pull data from main table for options
 use modal for not attending
  -->
 
-<div class="container mt-3">
+<section id="rsvp_page_section">
+    <div class="container">
+        <div class="row rsvp_box h-100 justify-content-md-center">
+            <div class="rsvp_column col-lg-4 col-md-8 align-self-center text-center">
+                <p>Are you attending the wedding.</p>
 
-    <p>Are you attending the wedding.</p>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#yesModal">
+                    Yes
+                </button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#noModal">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#yesModal">
-        Yes
-    </button>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#noModal">
-        No
-    </button>
-</div>
 
 <!-- The Modal -->
 <div class="modal fade" id="noModal">
@@ -34,7 +38,7 @@ use modal for not attending
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">No modal</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- Modal body -->
@@ -47,7 +51,7 @@ use modal for not attending
                 <form class="pull-right" action="<?php echo URLROOT; ?>/pages/no/<?php echo $data['id'] ?>" method="post">
                     <input type="submit" value="Yes" class="btn btn-danger">
                 </form>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
             </div>
 
         </div>
@@ -62,7 +66,7 @@ use modal for not attending
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Yes modal</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
             <!-- guest_id, main, attending -->
@@ -87,7 +91,7 @@ use modal for not attending
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
 
         </div>
