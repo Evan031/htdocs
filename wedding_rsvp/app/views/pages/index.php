@@ -16,7 +16,7 @@ create_session("guest_list", $guestArray);
             <div class="text_inner">
                 <img src="<?php echo URLROOT; ?>/img/banner/ornaments.png" alt="">
                 <h4>11 Feb 2023</h4>
-                <h3>Stacey & Evan <br>
+                <h3 class="announcement_heading">Stacey & Evan <br>
                     Wedding Ceremony</h3>
                 <span>We're Getting Married!</span>
             </div>
@@ -39,7 +39,7 @@ create_session("guest_list", $guestArray);
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
+                    <img class="img-fluid" src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
                     <span>11. February. 2023</span>
                     <h3>THE. WEDDING. Countdown</h3>
                 </div>
@@ -64,7 +64,7 @@ create_session("guest_list", $guestArray);
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
+                    <img class="img-fluid" src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
                     <h3>Our. Love. Story</h3>
                 </div>
             </div>
@@ -117,7 +117,7 @@ create_session("guest_list", $guestArray);
         <div class="row">
             <div class="col-xl-12">
                 <div class="section_title text-center">
-                    <img src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
+                    <img class="img-fluid" src="<?php echo URLROOT; ?>/img/banner/flowers.png" alt="">
                     <h3>Program. Details</h3>
                 </div>
             </div>
@@ -129,7 +129,7 @@ create_session("guest_list", $guestArray);
                         <span>
                             16.00
                         </span>
-                        <h3>Wedding Ceremony</h3>
+                        <h3>The Ceremony</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. </p>
                         <img src="<?php echo URLROOT; ?>/img/program_details/ornaments.png" alt="">
@@ -155,7 +155,7 @@ create_session("guest_list", $guestArray);
                         <span>
                             22.00
                         </span>
-                        <h3>WeParty Time</h3>
+                        <h3>Party Time</h3>
                         <p>Many variations of passages of Lorem Ipsum available, but the majority have suffered
                             alteration in some content of a page when looking at its layout. </p>
                         <img src="<?php echo URLROOT; ?>/img/program_details/ornaments.png" alt="">

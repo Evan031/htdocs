@@ -19,6 +19,8 @@
 
             <a href="<?php echo URLROOT ?>/food_preferences.csv" class="btn btn-success">Download Food Preference CSV</a>
 
+            <a href="<?php echo URLROOT; ?>/dashboards/add" class="btn btn-success">add Guests</a>
+
         </div>
         <div class="col-md-6">
             <button id="r_no_btn" class="btn btn-light">Show haven't RSVP</button>

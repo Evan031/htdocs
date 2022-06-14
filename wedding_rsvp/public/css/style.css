@@ -89,7 +89,43 @@ section#rsvp_page_section .h-100 {
 
 div#msg-flash {
     margin: 0px;
+    text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+    .slider_area div#wreath_image {
+        width: 370px;
+        height: 370px;
+    }
+
+    .row.main_row.rsvp_box.h-100.justify-content-md-center {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .row.location_section_row a {
+        margin: 0 0 9% 0;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .slider_area div#wreath_image {
+        width: 328px;
+        height: 328px;
+    }
+
+    #yesModal .boxed_btn3 {
+        margin-left: 0%;
+    }
+}
+
+
+
+
+
 
 /* ======================================================================== */
 
@@ -630,7 +666,7 @@ h3 {
 .section_title h3 {
     font-size: 36px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     text-transform: uppercase;
     margin-top: 20px;
 }
@@ -1138,9 +1174,9 @@ h3 {
 @media (max-width: 767px) {
 
     /* line 7, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_slider.scss */
-    .slider_area {
+    /* .slider_area {
         padding: 0 20px;
-    }
+    } */
 }
 
 /* line 14, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_slider.scss */
@@ -5468,6 +5504,10 @@ h6 {
         margin-bottom: 10px;
         font-size: 18px;
     }
+
+    .slider_area_inner .slider_text h3.announcement_heading {
+        font-size: 38px;
+    }
 }
 
 /* line 140, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_blog_part.scss */
@@ -5501,6 +5541,8 @@ h6 {
     .blog_part .single-home-blog .card ul li {
         margin-right: 10px;
     }
+
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
