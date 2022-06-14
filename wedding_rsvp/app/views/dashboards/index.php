@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
 <?php flash('dashboard_message'); ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
             <canvas id="guests_attending" class="graph_style"></canvas>
