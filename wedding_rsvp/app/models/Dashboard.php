@@ -105,9 +105,9 @@ class Dashboard
     public function getFoodGraph()
     {
         $this->db->query('SELECT 
-                        COUNT(IF(details.main = 2, 1, NULL)) AS "Food 1",
+                        COUNT(IF(details.main = 2, 1, NULL)) AS "Vegetarian",
                         COUNT(IF(details.main = 3, 1, NULL)) AS "Chicken",
-                        COUNT(IF(details.main = 4, 1, NULL)) AS "Pork"
+                        COUNT(IF(details.main = 4, 1, NULL)) AS "Beef"
                         FROM
                         details
                         INNER JOIN foods
@@ -122,7 +122,7 @@ class Dashboard
     public function attendingFilter($bool)
     {
         $this->db->query('SELECT 
-                        name, surname
+                        guests.id, name, surname
                         FROM details
                         INNER JOIN guests
                         ON details.guest_id = guests.id
@@ -136,7 +136,7 @@ class Dashboard
 
     public function rsvpFilter($bool)
     {
-        $this->db->query('SELECT name, surname FROM guests WHERE rsvp = ' . $bool);
+        $this->db->query('SELECT id, name, surname FROM guests WHERE rsvp = ' . $bool);
 
         $results = $this->db->resultSet();
 

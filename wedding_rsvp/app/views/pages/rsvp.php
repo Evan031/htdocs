@@ -76,6 +76,12 @@
                 <div class="row">
                     <div class="col text-center">
                         <h4 class="mb-4">Select your main</h4>
+                        <div class="main_menu_text">
+                            <h5>Your options are</h5>
+                            <p>1. Beef fillet with saut&eacute;ed mushrooms & sherry cr&eacute;me</p>
+                            <p>2. Lemon & herb chicken fillet</p>
+                            <p>3. Gnocci with wild rocket & pecorino in butternut & parmesan cream</p>
+                        </div>
                         <form action="<?php echo URLROOT; ?>/pages/yes/<?php echo $data['id']; ?>" method="post">
                             <div class="form-row justify-content-center">
                                 <div class="col-md-8 col-6">

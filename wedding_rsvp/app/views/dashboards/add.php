@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php' ?>
-<div class="container">
-<div class="row">
-    <div class="col">
+<div id="dashboard_container"  class="container">
+<div class="row justify-content-md-center">
+    <div class="col-lg-4">
         <form action="<?php echo URLROOT; ?>/dashboards/add" method="post">
             <div class="form-group">
                 <label for="name">Name: <sup>*</sup></label>
@@ -15,11 +15,6 @@
             </div>
             <input type="submit" class="btn btn-success" value="Submit">
         </form>
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-        One of three columns
     </div>
 </div>
 </div>

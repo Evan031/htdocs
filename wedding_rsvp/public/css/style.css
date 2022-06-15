@@ -92,6 +92,19 @@ div#msg-flash {
     text-align: center;
 }
 
+div#dashboard_container {
+    padding: 5% 0%;
+    background-color: #fff;
+}
+
+.card.bg-success {
+    background-color: rgb(40 167 69 / 20%)!important;
+}
+
+.card.bg-danger.card-body {
+    background-color: rgb(220 53 69 / 20%)!important;
+}
+
 @media only screen and (max-width: 768px) {
     .slider_area div#wreath_image {
         width: 370px;
