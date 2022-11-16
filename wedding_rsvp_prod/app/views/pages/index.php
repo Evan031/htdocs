@@ -10,6 +10,12 @@ create_session("guest_list", $guestArray);
 
 ?>
 
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <!-- slider_area -->
 <div class="slider_area ">
     <div class="slider_area_inner slider_bg_1 overlay2">
